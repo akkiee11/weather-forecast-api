@@ -997,6 +997,8 @@ Unauthorized:
 #### Curl Request:
 ```shell
 curl --location 'localhost:8080/weather/forecast/Berlin/hourly' \
+--header 'client_id: D5F14478654D38CE24' \
+--header 'client_secret: E5R214478654D38CE24' \
 --header 'Cookie: JSESSIONID=C4B47E2D5F14478654D38CE248AC2C32'
 ```
 Sample Response:
