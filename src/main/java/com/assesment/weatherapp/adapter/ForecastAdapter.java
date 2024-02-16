@@ -62,7 +62,7 @@ public class ForecastAdapter {
         } catch (HttpClientErrorException.NotFound e) {
             throw new ForecastNotFoundException("Forecast for city '" + city + "' not found", e);
         } catch (HttpClientErrorException | HttpServerErrorException e) {
-            throw new ForecastServiceException("Error while fetching forecast summary for " + city, e);
+            throw new ForecastServiceException("Error while fetching forecast for " + city, e);
         } catch (RestClientException e) {
             throw new ForecastServiceException("Error communicating with the weather service API", e);
         } catch (Exception ex) {

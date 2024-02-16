@@ -38,7 +38,7 @@ public class WeatherServiceImpl implements WeatherService {
 
         ForecastResponse forecastHourly = forecastAdapter.getForecastHourly(city);
         if (forecastHourly == null) {
-            throw new ForecastServiceException("No response or empty response body received while fetching forecast summary for " + city);
+            throw new ForecastServiceException("No response or empty response body received while fetching forecast hourly for " + city);
         }
         return forecastHourly;
 

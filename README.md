@@ -34,6 +34,8 @@ Replace `rapidapi.api-key` with your API key in the project configuration.
 
 ```bash
 curl --location 'localhost:8080/weather/forecast/Berlin/summary' \
+--header 'client_id: D5F14478654D38CE24' \
+--header 'client_secret: E5R214478654D38CE24' \
 --header 'Cookie: JSESSIONID=C4B47E2D5F14478654D38CE248AC2C32'
 ```
 Sample Response:
