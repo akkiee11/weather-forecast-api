@@ -3,6 +3,7 @@ package com.assesment.weatherapp.controller;
 
 import com.assesment.weatherapp.config.util.TokenGenerator;
 import com.assesment.weatherapp.dto.AuthTokenResponse;
+import com.assesment.weatherapp.dto.UserCredsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +22,10 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/authenticate")
-    public ResponseEntity<?> authenticateUser(@RequestParam String email, @RequestParam String password) {
+    @PostMapping("/authenticate")
+    public ResponseEntity<?> authenticateUser(@RequestBody UserCredsDto userCredsDto) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(email, password));
+                new UsernamePasswordAuthenticationToken(userCredsDto.getEmail(), userCredsDto.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = tokenGenerator.generateToken(authentication);
         AuthTokenResponse authTokenResponse = AuthTokenResponse.builder().statusCode(HttpStatus.OK.value()).status(HttpStatus.OK.name()).token(token).build();
